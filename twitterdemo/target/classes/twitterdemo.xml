@@ -25,12 +25,16 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
                     <dw:input-payload mimeType="application/json"/>
                     <dw:set-payload><![CDATA[%dw 1.0
 %output application/csv
+separator=",", header=false
 ---
 [{
 	twits: "false",
-	tweetdate: payload.payload.createdAt as :string,
+	tweetdate: (payload.payload.createdAt as :number/1000 ) as :datetime  as :string {format:"yyyy/dd/MM"},
 	retwits: payload.payload.retweet as :string,
+	fromhandle: payload.payload.text,
+	retweetdate: (payload.payload.retweetedStatus.createdAt as :number/1000 ) as :datetime  as :string {format:"yyyy/dd/MM"},
 	timezone: payload.payload.retweetedStatus.user.timeZone
+	
 }]]]></dw:set-payload>
                 </dw:transform-message>
                 <logger message="#[payload]" level="INFO" doc:name="Logger"/>
