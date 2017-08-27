@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "tweets"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "tweetcsv"
+        }
+    },
+    "id": "0a173a0d-b0b4-4dc9-9b96-92e98bb04c06",
+    "version": "5.2.0.0"
+}
