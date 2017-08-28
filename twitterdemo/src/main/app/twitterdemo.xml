@@ -36,7 +36,7 @@ separator=",", header=false
         <logger message="#[payload]" level="INFO" doc:name="Logger"/>
         <file:outbound-endpoint path="src/main/resources/outputDir.lkhkla" outputPattern="Tweets_#[server.dateTime.format(&quot;dd-MMM-yy&quot;)].csv" responseTimeout="10000" doc:name="File" connector-ref="File"/>
         <catch-exception-strategy doc:name="Catch Exception Strategy">
-            <logger message="Error processing tweets---#[payload]" level="INFO" doc:name="Set error message"/>
+            <logger message="Error processing tweets---#[message.exception.getMessage()]" level="INFO" doc:name="Set error message"/>
             <file:outbound-endpoint path="src/main/resources/outputDir" outputPattern="ReDoTweets_#[server.dateTime].json" connector-ref="File" responseTimeout="10000" doc:name="File"/>
         </catch-exception-strategy>
     </flow>
