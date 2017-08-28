@@ -17,32 +17,27 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
                 <twitter:keyword>901265454903296002</twitter:keyword>
             </twitter:keywords>
             </twitter:user-stream>
-        <set-variable variableName="Retweet" value="#[payload.payload.retweet]" doc:name="Retweet"/>
         <json:object-to-json-transformer doc:name="Object to JSON"/>
-        <choice doc:name="Choice">
-            <when expression="#[flowVars.Retweet==&quot;true&quot;]">
-                <dw:transform-message doc:name="Retweet" metadata:id="0a173a0d-b0b4-4dc9-9b96-92e98bb04c06">
-                    <dw:input-payload mimeType="application/json"/>
-                    <dw:set-payload><![CDATA[%dw 1.0
+        <dw:transform-message doc:name="FormatTweets" metadata:id="0a173a0d-b0b4-4dc9-9b96-92e98bb04c06">
+            <dw:input-payload mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
 %output application/csv
 separator=",", header=false
 ---
 [{
-	twits: "false",
-	tweetdate: (payload.payload.createdAt as :number/1000 ) as :datetime  as :string {format:"yyyy/dd/MM"},
-	retwits: payload.payload.retweet as :string,
-	fromhandle: payload.payload.text,
-	retweetdate: (payload.payload.retweetedStatus.createdAt as :number/1000 ) as :datetime  as :string {format:"yyyy/dd/MM"},
-	timezone: payload.payload.retweetedStatus.user.timeZone
+	Retweets: payload.payload.retweet as :string,
+	TweetsInfo: payload.payload.text,
+	Date: (payload.payload.createdAt as :number/1000 ) as :datetime  as :string {format:"yyyy/dd/MM"},
+	Followers: payload.sourceUser.followersCount as :string,
+	Timezone: payload.payload.user.timeZone
 	
 }]]]></dw:set-payload>
-                </dw:transform-message>
-                <logger message="#[payload]" level="INFO" doc:name="Logger"/>
-            </when>
-            <otherwise>
-                <logger message="no retweet" level="INFO" doc:name="Logger"/>
-            </otherwise>
-        </choice>
-        <file:outbound-endpoint path="src/main/resources/outputDir" outputPattern="Tweets.csv" responseTimeout="10000" doc:name="File" connector-ref="File"/>
+        </dw:transform-message>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <file:outbound-endpoint path="src/main/resources/outputDir.lkhkla" outputPattern="Tweets_#[server.dateTime.format(&quot;dd-MMM-yy&quot;)].csv" responseTimeout="10000" doc:name="File" connector-ref="File"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <logger message="Error processing tweets---#[payload]" level="INFO" doc:name="Set error message"/>
+            <file:outbound-endpoint path="src/main/resources/outputDir" outputPattern="ReDoTweets_#[server.dateTime].json" connector-ref="File" responseTimeout="10000" doc:name="File"/>
+        </catch-exception-strategy>
     </flow>
 </mule>

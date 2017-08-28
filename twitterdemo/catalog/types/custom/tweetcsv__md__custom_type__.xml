@@ -26,7 +26,7 @@
       </metaDataModelPropertiesManager>
       <fields>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>twits</name>
+          <name>Retweets</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -37,13 +37,13 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>twits</label>
+                <label>Retweets</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
         </org.mule.common.metadata.DefaultMetaDataField>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>tweetdate</name>
+          <name>TweetsInfo</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -54,13 +54,13 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>tweetdate</label>
+                <label>TweetsInfo</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
         </org.mule.common.metadata.DefaultMetaDataField>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>retwits</name>
+          <name>HandleFrom</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -71,13 +71,13 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>retwits</label>
+                <label>HandleFrom</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
         </org.mule.common.metadata.DefaultMetaDataField>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>fromhandle</name>
+          <name>Date</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -88,13 +88,13 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>fromhandle</label>
+                <label>Date</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
         </org.mule.common.metadata.DefaultMetaDataField>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>retweetdate</name>
+          <name>Followers</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -105,13 +105,13 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>retweetdate</label>
+                <label>Followers</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
         </org.mule.common.metadata.DefaultMetaDataField>
         <org.mule.common.metadata.DefaultMetaDataField>
-          <name>timezone</name>
+          <name>Timezone</name>
           <model class="org.mule.common.metadata.DefaultSimpleMetaDataModel">
             <dataType>STRING</dataType>
             <metaDataModelPropertiesManager>
@@ -122,7 +122,7 @@
           <metaDataFieldPropertyManager>
             <properties>
               <org.mule.common.metadata.property.LabelMetaDataProperty>
-                <label>timezone</label>
+                <label>Timezone</label>
               </org.mule.common.metadata.property.LabelMetaDataProperty>
             </properties>
           </metaDataFieldPropertyManager>
