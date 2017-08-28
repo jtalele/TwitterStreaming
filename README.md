@@ -1,4 +1,5 @@
 # TwitterStreaming
+
 Deployment On Anypoint Platform
 1. Login to Anypoint platform
 2. Runtime manager - deploy application 
@@ -6,10 +7,13 @@ Deployment On Anypoint Platform
 4. Set the property to dev/prod
 5. Deploy application.
 
-Deployment On Perm
+
+Deployment on premise
 1. Copy the zip file.
 2. Paste the application’s zip file into the apps folder of Mule ESB Standalone
 3. Apps then extracts and deploys it automatically
+
+
 
 Using Jenkins
 1. mavenize a project 
